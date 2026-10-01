@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriAventuras - ¡Aprende, juega y come saludable!</title>
+    <!-- Fuentes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos-fondo.css">
+</head>
+<body>
+    <div class="nutri-bg" aria-hidden="true">
+        <div class="sun-rays"></div>
+        <div class="sun"></div>
+        <div class="cloud cloud-left"></div>
+        <div class="cloud cloud-right"></div>
+        <div class="distant-mountains"></div>
+        <div class="river-waterfall"></div>
+        <div class="hills-mid"></div>
+        <div class="foreground-grass"><div class="flowers"></div></div>
+    </div>
+
+    <!-- BARRA SUPERIOR DE NAVEGACIÓN Y PERFIL -->
+    <header class="navbar">
+        <a class="brand" href="#sec-inicio" aria-label="NutriAventuras, inicio">
+            <span class="brand-mark" aria-hidden="true">🌱</span>
+            <span><strong>Nutri</strong>Aventuras<small>Pequeñas decisiones, grandes cambios</small></span>
+        </a>
+        <div class="user-profile">
+            <span id="header-avatar" class="avatar">👦</span>
+            <div class="user-info">
+                <span id="user-greeting">Hola, Pequeño/a aventurero/a</span>
+                <span id="user-grade-tag" class="badge">Primero B</span>
+            </div>
+            <button id="btn-edit-avatar" class="btn-icon" type="button" title="Personalizar avatar" aria-label="Personalizar avatar">👕</button>
+            <button id="btn-edit-profile" class="btn-icon" title="Cambiar Datos">⚙️</button>
+        </div>
+
+        <div class="score-board">
+            <div class="star-counter">
+                <span class="star-icon">⭐</span>
+                <span id="total-points">0</span> pts
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="main-nav" aria-label="Navegación principal">
+        <button class="nav-btn active" data-target="sec-inicio">
+            <span class="icon">🏠</span>
+            <span>Inicio</span>
+        </button>
+        <button class="nav-btn" data-target="sec-personajes">
+            <span class="icon">🍎</span>
+            <span>Descubre</span>
+        </button>
+        <button class="nav-btn" data-target="sec-misiones">
+            <span class="icon">🥕</span>
+            <span>Retos</span>
+        </button>
+        <button class="nav-btn" data-target="sec-juegos">
+            <span class="icon">🎮</span>
+            <span>Juegos</span>
+        </button>
+        <button class="nav-btn" data-target="sec-preguntas">
+            <span class="icon">⭐</span>
+            <span>Puntos</span>
+        </button>
+        <button class="nav-btn" data-target="sec-logros">
+            <span class="icon">🏆</span>
+            <span>Niveles</span>
+        </button>
+        <button class="nav-btn" data-target="sec-recetas">
+            <span class="icon">🍽️</span>
+            <span>Recetas</span>
+        </button>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container main-content">
+
+        <!-- 1. PANTALLA DE INICIO Y PERSONAJES -->
+        <section id="sec-inicio" class="content-section active">
+            <div class="hero-banner">
+                <div class="hero-copy">
+                    <span class="hero-kicker">TU NUEVA AVENTURA SALUDABLE</span>
+                    <h1>Nutri<span>Aventuras</span></h1>
+                    <p class="subtitle">Pequeñas decisiones, grandes cambios. Come sano, juega, aprende y gana grandes aventuras.</p>
+                    <button class="btn-primary" type="button" data-open-section="sec-misiones">¡Empezar un reto! <span aria-hidden="true">→</span></button>
+                </div>
+                <div class="hero-art" id="interactive-landscape" role="group" aria-label="Paisaje interactivo">
+                    <button class="hero-sun" type="button" data-scene-item aria-label="Hacer brillar el sol">☀️</button>
+                    <span class="hero-cloud cloud-left" aria-hidden="true">☁️</span>
+                    <span class="hero-cloud cloud-right" aria-hidden="true">☁️</span>
+                    <span class="hero-tree tree-left" aria-hidden="true">🌳</span>
+                    <span class="hero-tree tree-right" aria-hidden="true">🌴</span>
+                    <button class="hero-fruit fruit-apple" type="button" data-scene-item aria-label="Tocar la manzana">🍎</button>
+                    <button class="hero-fruit fruit-banana" type="button" data-scene-item aria-label="Tocar el plátano">🍌</button>
+                    <span class="hero-explorer" aria-hidden="true">🧑‍🌾</span>
+                    <button class="hero-fruit fruit-carrot" type="button" data-scene-item aria-label="Tocar la zanahoria">🥕</button>
+                    <button class="hero-fruit fruit-broccoli" type="button" data-scene-item aria-label="Tocar el brócoli">🥦</button>
+                    <span class="hero-path"></span>
+                </div>
+            </div>
+
+            <div class="home-shortcuts">
+                <button type="button" data-open-section="sec-personajes"><span>🍎</span><strong>Descubre</strong></button>
+                <button type="button" data-open-section="sec-misiones"><span>🥕</span><strong>Retos</strong></button>
+                <button type="button" data-open-section="sec-juegos"><span>⭐</span><strong>Juegos</strong></button>
+                <button type="button" data-open-section="sec-logros"><span>🏆</span><strong>Niveles</strong></button>
+                <button type="button" data-open-section="sec-recetas"><span>🍽️</span><strong>Recetas</strong></button>
+            </div>
+
+            <div class="home-heading"><div><span class="eyebrow">SIGUE EXPLORANDO</span><h2>Una misión pequeña, un gran paso</h2></div><span class="home-sparkle" aria-hidden="true">✨</span></div>
+            <div class="home-feature-row">
+                <article class="home-feature"><span class="feature-emoji">💧</span><div><strong>Hidrátate como un campeón</strong><p>Marca tus vasos de agua y suma puntos para tu siguiente nivel.</p></div><button type="button" data-open-section="sec-misiones" aria-label="Ir a los retos">→</button></article>
+                <article class="home-feature"><span class="feature-emoji">🧠</span><div><strong>La pregunta de hoy</strong><p>Un dato nuevo sobre cómo cuidar tu cuerpo.</p></div><button type="button" data-open-section="sec-preguntas" aria-label="Ir a los puntos">→</button></article>
+                <article class="home-feature"><span class="feature-emoji">🗺️</span><div><strong>Laberinto saludable</strong><p>Encuentra el camino hasta la meta.</p></div><button type="button" data-open-game="tab-maze" aria-label="Jugar al laberinto">→</button></article>
+                <article class="home-feature"><span class="feature-emoji">👕</span><div><strong>Crea tu avatar</strong><p>Elige tu estilo para la aventura.</p></div><button type="button" data-open-section="sec-avatar" aria-label="Personalizar avatar">→</button></article>
+            </div>
+        </section>
+
+        <section id="sec-personajes" class="content-section">
+            <div class="page-intro"><span class="eyebrow">CONOCE A TU EQUIPO</span><h1>Descubre sus súper poderes</h1><p>Elige un personaje para conocer su consejo saludable.</p></div>
+            <div class="cards-grid character-grid">
+                <article class="card card-manzanita character-card"><span class="character-emoji">🍎</span><span class="character-name">Manzanita</span><p>Las frutas están llenas de vitaminas y fibra. ¡Prueba una de muchos colores!</p><button class="character-game" type="button" data-character-game="Manzanita">Jugar: encuentra la manzana <span>→</span></button></article>
+                <article class="card card-brocolin character-card"><span class="character-emoji">🥦</span><span class="character-name">Brócolín</span><p>Las verduras ayudan a tu cuerpo a crecer fuerte. ¡Hay muchísimas para probar!</p><button class="character-game" type="button" data-character-game="Brócolín">Jugar: ordena los colores <span>→</span></button></article>
+                <article class="card card-gotita character-card"><span class="character-emoji">💧</span><span class="character-name">Gotita</span><p>Tomar agua durante el día ayuda a mantenerte con energía.</p><button class="character-game" type="button" data-character-game="Gotita">Jugar: cuenta los vasos <span>→</span></button></article>
+                <article class="card card-zanahorin character-card"><span class="character-emoji">🥕</span><span class="character-name">Zanahorín</span><p>¡Un plato con varios colores puede ser delicioso y nutritivo!</p><button class="character-game" type="button" data-character-game="Zanahorín">Jugar: arma un plato <span>→</span></button></article>
+            </div>
+            <div id="character-game-feedback" class="character-game-feedback" role="status" aria-live="polite"></div>
+        </section>
+
+
+        <!-- 2. APARTADO DE MISIONES -->
+        <section id="sec-misiones" class="content-section">
+            <div class="section-header">
+                <h2>Misiones del Día</h2>
+                <p>Completa los retos que quieras y gana puntos mientras aprendes.</p>
+                <a class="music-link" href="Travelling.mp3" target="_blank" rel="noopener noreferrer">🎵 Escuchar música de fondo</a>
+            </div>
+
+            <div class="missions-list">
+                <!-- Misión 1 -->
+                <div class="mission-card" id="mission-1">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🍎 Prueba una fruta diferente</h3>
+                        <p>Elige una fruta que no hayas probado esta semana y regístrala.</p>
+                        
+                        <div class="mission-action">
+                            <select id="select-fruit">
+                                <option value="">Selecciona una fruta...</option>
+                                <option value="Manzana">Manzana</option>
+                                <option value="Pera">Pera</option>
+                                <option value="Plátano">Plátano</option>
+                                <option value="Uva">Uva</option>
+                                <option value="Naranja">Naranja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="1">¡Completar!</button>
+                </div>
+
+                <!-- Misión 2 -->
+                <div class="mission-card" id="mission-2">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>💧 Toma 4 vasos de agua al día</h3>
+                        <p>Marca cada vaso de agua que tomes durante el día.</p>
+                        
+                        <div class="water-tracker">
+                            <button class="btn-water" data-glass="1">🥛</button>
+                            <button class="btn-water" data-glass="2">🥛</button>
+                            <button class="btn-water" data-glass="3">🥛</button>
+                            <button class="btn-water" data-glass="4">🥛</button>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="2" disabled>¡Completar!</button>
+                </div>
+
+                <!-- Misión 3 -->
+                <div class="mission-card" id="mission-3">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🍔 Elige alimentos saludables</h3>
+                        <p>Ayuda a Manzanita a seleccionar los alimentos que nos dan energía.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-3">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-3" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 3">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="3">¡Completar!</button>
+                </div>
+
+                <!-- Misión 4 -->
+                <div class="mission-card mission-extra" id="mission-4">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🥦 Descubre una verdura</h3>
+                        <p>Elige una verdura de color verde y cuéntale a alguien por qué es buena.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-4">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-4" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 4">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="4">¡Completar!</button>
+                </div>
+
+                <!-- Misión 5 -->
+                <div class="mission-card mission-extra" id="mission-5">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🏃 Muévete durante 15 minutos</h3>
+                        <p>Baila, camina, salta o juega al aire libre para activar tu cuerpo.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-5">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-5" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 5">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="5">¡Completar!</button>
+                </div>
+
+                <!-- Misión 6 -->
+                <div class="mission-card mission-extra" id="mission-6">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🍽️ Ayuda a preparar la mesa</h3>
+                        <p>Coloca los cubiertos, el vaso y una servilleta antes de comer.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-6">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-6" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 6">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="6">¡Completar!</button>
+                </div>
+
+                <!-- Misión 7 -->
+                <div class="mission-card mission-extra" id="mission-7">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🌈 Come alimentos de tres colores</h3>
+                        <p>Arma una comida divertida combinando colores naturales en tu plato.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-7">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-7" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 7">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="7">¡Completar!</button>
+                </div>
+
+                <!-- Misión 8 -->
+                <div class="mission-card mission-extra" id="mission-8">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🧠 Aprende un dato saludable</h3>
+                        <p>Juega una trivia y comparte el dato que más te haya sorprendido.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-8">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-8" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 8">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="8">¡Completar!</button>
+                </div>
+
+                <!-- Misión 9 -->
+                <div class="mission-card mission-extra" id="mission-9">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>🛒 Crea una lista de compras</h3>
+                        <p>Escribe tres alimentos saludables que te gustaría encontrar en casa.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-9">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-9" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 9">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="9">¡Completar!</button>
+                </div>
+
+                <!-- Misión 10 -->
+                <div class="mission-card mission-extra" id="mission-10">
+                    <div class="mission-info">
+                        <span class="mission-badge">+5 Puntos</span>
+                        <h3>💚 Comparte un consejo</h3>
+                        <p>Cuéntale a un amigo o familiar un hábito que te ayude a sentirte mejor.</p>
+                        <div class="evidence-fields">
+                            <label for="evidence-text-10">Escribe o sube una prueba:</label>
+                            <textarea id="evidence-text-10" class="evidence-text" placeholder="Cuenta qué hiciste..." rows="2"></textarea>
+                            <input class="evidence-file" type="file" accept="image/*" aria-label="Foto de prueba de la misión 10">
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-complete-mission" data-points="5" data-mission="10">¡Completar!</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. EJEMPLO DE JUEGO (Arma el plato saludable) -->
+        <section id="sec-juegos" class="content-section">
+            <div class="game-container">
+                <div class="game-heading"><div><span class="eyebrow">JUEGA Y APRENDE</span><h1>Pequeños juegos, grandes poderes</h1></div><span class="game-heading-icon" aria-hidden="true">🎮</span></div>
+                <div class="game-tabs" role="tablist" aria-label="Minijuegos">
+                    <button class="game-tab active" id="tab-plate" type="button" role="tab" aria-selected="true" aria-controls="game-plate" data-game="game-plate"><span>🍽️</span><strong>Arma tu plato</strong><small>Combina alimentos</small></button>
+                    <button class="game-tab" id="tab-traffic" type="button" role="tab" aria-selected="false" aria-controls="game-traffic" data-game="game-traffic"><span>🚦</span><strong>Semáforo</strong><small>Elige colores</small></button>
+                    <button class="game-tab" id="tab-memory" type="button" role="tab" aria-selected="false" aria-controls="game-memory-panel" data-game="game-memory-panel"><span>🧠</span><strong>Memoria</strong><small>Encuentra parejas</small></button>
+                    <button class="game-tab" id="tab-quiz" type="button" role="tab" aria-selected="false" aria-controls="game-quiz" data-game="game-quiz"><span>💡</span><strong>Trivia</strong><small>Responde y aprende</small></button>
+                    <button class="game-tab" id="tab-maze" type="button" role="tab" aria-selected="false" aria-controls="game-maze" data-game="game-maze"><span>🗺️</span><strong>Laberinto</strong><small>Llega a la meta</small></button>
+                </div>
+            </div>
+
+            <div class="game-container game-panel active" id="game-plate" role="tabpanel" aria-labelledby="tab-plate">
+                <h2>🍽️ Arma el plato saludable</h2>
+                <p>Selecciona tres o cuatro alimentos saludables para completar una comida balanceada:</p>
+
+                <div class="plate-builder">
+                    <div class="food-options">
+                        <button class="food-btn" data-healthy="true" data-name="Manzana">🍎 Manzana</button>
+                        <button class="food-btn" data-healthy="true" data-name="Brócoli">🥦 Brócoli</button>
+                        <button class="food-btn" data-healthy="false" data-name="Hamburguesa">🍔 Hamburguesa</button>
+                        <button class="food-btn" data-healthy="true" data-name="Pollo">🍗 Pollo</button>
+                        <button class="food-btn" data-healthy="false" data-name="Donas">🍩 Dona</button>
+                        <button class="food-btn" data-healthy="true" data-name="Zanahoria">🥕 Zanahoria</button>
+                    </div>
+
+                    <div class="plate-display">
+                        <div class="plate-slots">
+                            <div class="slot" id="slot-1">Fruta/Verdura</div>
+                            <div class="slot" id="slot-2">Proteína</div>
+                            <div class="slot" id="slot-3">Acompañamiento</div>
+                            <div class="slot" id="slot-4">Vegetales</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-actions">
+                    <button id="btn-check-plate" class="btn-primary">¡Listo! ✔️</button>
+                    <button id="btn-reset-plate" class="btn-secondary">Reiniciar 🔄</button>
+                </div>
+            </div>
+
+            <div class="game-container game-panel" id="game-traffic" role="tabpanel" aria-labelledby="tab-traffic">
+                <div class="game-panel-header"><div><span class="eyebrow">EL SEMÁFORO DE LOS ALIMENTOS</span><h2>¿Qué color le toca?</h2><p>Piensa en cada alimento y elige su color.</p></div><span class="game-illustration" aria-hidden="true">🚦</span></div>
+                <div class="traffic-card"><span id="traffic-food" class="food-question" aria-hidden="true">🥕</span><h3 id="traffic-name">Zanahoria</h3><p id="traffic-counter">Alimento 1 de 6</p><div class="traffic-actions"><button class="traffic-btn traffic-green" type="button" data-traffic="green"><span></span>Verde: a menudo</button><button class="traffic-btn traffic-yellow" type="button" data-traffic="yellow"><span></span>Amarillo: a veces</button><button class="traffic-btn traffic-red" type="button" data-traffic="red"><span></span>Rojo: ocasional</button></div><p id="traffic-feedback" class="game-feedback" role="status" aria-live="polite"></p></div>
+            </div>
+
+            <div class="game-container game-panel" id="game-memory-panel" role="tabpanel" aria-labelledby="tab-memory">
+                <div class="game-panel-header"><div><span class="eyebrow">MEMORIA SALUDABLE</span><h2>Encuentra las parejas</h2><p>Voltea dos tarjetas y busca los alimentos iguales.</p></div><span class="game-illustration" aria-hidden="true">🧠</span></div>
+                <div id="memory-board" class="memory-board" aria-label="Tablero de parejas"></div>
+                <div class="memory-status"><span id="memory-moves">Movimientos: 0</span><span id="memory-pairs">Parejas: 0/4</span><button id="btn-reset-memory" class="btn-secondary" type="button">Mezclar de nuevo</button></div>
+            </div>
+
+            <div class="game-container game-panel" id="game-maze" role="tabpanel" aria-labelledby="tab-maze">
+                <div class="game-panel-header"><div><span class="eyebrow">DESAFÍO DE ORIENTACIÓN</span><h2>El laberinto saludable</h2><p>Recoge las tres frutas y encuentra la salida.</p></div><span class="game-illustration" aria-hidden="true">🧭</span></div>
+                <div class="maze-toolbar">
+                    <div class="maze-levels" role="group" aria-label="Tamaño del laberinto">
+                        <button class="maze-level" type="button" data-maze-size="7" aria-pressed="false"><strong>Suave</strong><small>15 × 15</small></button>
+                        <button class="maze-level selected" type="button" data-maze-size="9" aria-pressed="true"><strong>Aventura</strong><small>19 × 19</small></button>
+                        <button class="maze-level" type="button" data-maze-size="11" aria-pressed="false"><strong>Experto</strong><small>23 × 23</small></button>
+                    </div>
+                    <div class="maze-legend"><span><i class="legend-start"></i>Salida</span><span><i class="legend-fruit">🍎</i>Fruta</span><span><i class="legend-goal">★</i>Meta</span></div>
+                </div>
+                <div class="maze-layout">
+                    <div id="maze-grid" class="maze-grid" role="grid" aria-label="Laberinto"></div>
+                    <aside class="maze-tools">
+                        <div class="maze-counter"><span>Pasos</span><strong id="maze-moves">0</strong></div>
+                        <div class="maze-counter"><span>Frutas</span><strong id="maze-fruits">0 / 3</strong></div>
+                        <div class="maze-dpad" aria-label="Controles de movimiento">
+                            <button type="button" data-maze-move="up" aria-label="Arriba">↑</button>
+                            <button type="button" data-maze-move="left" aria-label="Izquierda">←</button>
+                            <button type="button" data-maze-move="down" aria-label="Abajo">↓</button>
+                            <button type="button" data-maze-move="right" aria-label="Derecha">→</button>
+                        </div>
+                        <p id="maze-feedback" class="maze-feedback" role="status" aria-live="polite">¡Vamos a encontrar la salida!</p>
+                        <button id="btn-reset-maze" class="btn-secondary" type="button">Nuevo laberinto</button>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="game-container game-panel" id="game-quiz" role="tabpanel" aria-labelledby="tab-quiz">
+                <div class="game-panel-header"><div><span class="eyebrow">TRIVIA NUTRITIVA</span><h2>¿Cuánto sabes?</h2><p>Responde las preguntas y pon a prueba tus conocimientos.</p></div><span class="game-illustration" aria-hidden="true">💡</span></div>
+                <div class="quiz-card"><span id="quiz-number" class="quiz-number">PREGUNTA 1</span><h3 id="quiz-question"></h3><div id="quiz-options" class="quiz-options"></div><p id="quiz-feedback" class="game-feedback" role="status" aria-live="polite"></p><button id="btn-next-quiz" class="btn-primary" type="button" hidden>Siguiente pregunta</button></div>
+            </div>
+        </section>
+
+
+        <!-- 4. PREGUNTA DIARIA -->
+        <section id="sec-preguntas" class="content-section">
+            <div class="daily-header">
+                <div>
+                    <span class="daily-kicker">CURIOSIDAD DEL DÍA</span>
+                    <h2>🧠 Preguntas diarias</h2>
+                    <p>Responde una pregunta diferente cada día y descubre nuevos hábitos saludables.</p>
+                </div>
+                <div class="daily-calendar" aria-hidden="true">📅<strong id="daily-date-number">HOY</strong></div>
+            </div>
+
+            <div class="daily-question-card">
+                <div class="question-topline">
+                    <span id="daily-category" class="question-category">NUTRICIÓN</span>
+                    <span class="daily-reward">⭐ +3 puntos</span>
+                </div>
+                <div class="question-illustration" id="daily-illustration">🍎</div>
+                <h3 id="daily-question">Cargando tu pregunta...</h3>
+                <p class="question-helper">Elige la respuesta que creas correcta:</p>
+                <div id="daily-options" class="daily-options"></div>
+                <div id="daily-feedback" class="daily-feedback" role="status" aria-live="polite"></div>
+                <button id="daily-new-question" class="btn-secondary daily-next" type="button">Ver una pregunta de práctica</button>
+            </div>
+
+            <div class="daily-tips">
+                <div class="tip-icon">🌟</div>
+                <div><strong>¿Sabías que aprender también es una aventura?</strong><p>Vuelve mañana para encontrar una nueva pregunta. ¡Cada respuesta te ayuda a cuidarte mejor!</p></div>
+            </div>
+        </section>
+
+
+        <!-- 5. PANTALLA DE LOGROS -->
+        <section id="sec-logros" class="content-section">
+            <div class="logros-header">
+                <div class="level-title-row"><div><span class="eyebrow">CADA PASO CUENTA</span><h1>Mis niveles y logros</h1><p>Nivel actual: <strong id="current-level-title">Explorador Saludable</strong></p></div><span class="level-mascot" aria-hidden="true">🏆</span></div>
+                
+                <!-- Barra de progreso de puntos -->
+                <div class="progress-bar-container">
+                    <div id="progress-bar-fill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <small id="progress-text">0 / 15 puntos para el siguiente nivel</small>
+            </div>
+
+            <div class="badges-grid">
+                <!-- Medalla 1 -->
+                <div class="badge-card unlocked" id="badge-1">
+                    <div class="badge-icon">🌱</div>
+                    <h4>Explorador Saludable</h4>
+                    <p>Comienza el viaje comiendo mejor.</p>
+                </div>
+
+                <!-- Medalla 2 -->
+                <div class="badge-card locked" id="badge-2">
+                    <div class="badge-icon">🍎</div>
+                    <h4>Amigo de las Frutas</h4>
+                    <p>Alcanza 5 puntos en misiones.</p>
+                </div>
+
+                <!-- Medalla 3 -->
+                <div class="badge-card locked" id="badge-3">
+                    <div class="badge-icon">💧</div>
+                    <h4>Héroe del Agua</h4>
+                    <p>Alcanza 10 puntos en misiones.</p>
+                </div>
+
+                <!-- Medalla 4 -->
+                <div class="badge-card locked" id="badge-4">
+                    <div class="badge-icon">🏆</div>
+                    <h4>Campeón Saludable</h4>
+                    <p>Alcanza 15 puntos o más.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-recetas" class="content-section">
+            <div class="page-intro recipe-intro"><span class="eyebrow">COCINAR TAMBIÉN ES UNA AVENTURA</span><h1>Recetas para pequeños chefs</h1><p>Ideas sencillas, coloridas y ricas para preparar en familia.</p><span class="recipe-chef" aria-hidden="true">👩‍🍳</span></div>
+            <div class="recipe-grid">
+                <article class="recipe-card recipe-fruit"><div class="recipe-art" aria-hidden="true"><span>🍓</span><span>🍌</span><span>🍇</span><strong>🥣</strong></div><div class="recipe-content"><span class="recipe-tag">SIN COCINAR · 10 MIN</span><h2>Ensalada de frutas</h2><p>Fresca, colorida y llena de vitaminas.</p><h3>Ingredientes</h3><ul><li>1 plátano y 1 manzana</li><li>½ taza de fresas y uvas</li><li>Yogur natural (opcional)</li></ul><h3>Preparación</h3><ol><li>Lava muy bien la fruta.</li><li>Pide ayuda para cortarla en trozos.</li><li>Mezcla en un bol y agrega yogur.</li></ol><div class="recipe-tip">💡 Puedes usar la fruta que tengas en casa.</div></div></article>
+                <article class="recipe-card recipe-wrap"><div class="recipe-art" aria-hidden="true"><span>🥬</span><span>🥕</span><span>🍅</span><strong>🌯</strong></div><div class="recipe-content"><span class="recipe-tag">CON AYUDA · 15 MIN</span><h2>Wrap de pollo y verduras</h2><p>¡Fácil de enrollar y divertido de compartir!</p><h3>Ingredientes</h3><ul><li>1 tortilla integral</li><li>Pollo cocido y desmenuzado</li><li>Lechuga, tomate y zanahoria</li><li>Aguacate (opcional)</li></ul><h3>Preparación</h3><ol><li>Coloca la tortilla en un plato.</li><li>Añade el pollo y las verduras.</li><li>Enrolla con cuidado y disfruta.</li></ol><div class="recipe-tip">💡 Un adulto puede ayudarte a cortar.</div></div></article>
+                <article class="recipe-card recipe-oats"><div class="recipe-art" aria-hidden="true"><span>🍌</span><span>🌾</span><span>🍫</span><strong>🍪</strong></div><div class="recipe-content"><span class="recipe-tag">CON AYUDA · 20 MIN</span><h2>Galletas de avena</h2><p>Una merienda casera para compartir.</p><h3>Ingredientes</h3><ul><li>1 taza de avena</li><li>1 plátano maduro</li><li>1 cucharada de miel</li><li>Pasas (opcional)</li></ul><h3>Preparación</h3><ol><li>Aplasta el plátano en un bol.</li><li>Mezcla con avena y miel.</li><li>Forma galletas y pide ayuda para hornear.</li></ol><div class="recipe-tip">💡 El horno siempre lo usa una persona adulta.</div></div></article>
+            </div>
+            <p class="recipe-footer">¡Comer sano también es divertido! <span aria-hidden="true">🌟</span></p>
+        </section>
+
+        <section id="sec-avatar" class="content-section">
+            <div class="page-intro"><span class="eyebrow">TU COMPAÑERO DE AVENTURAS</span><h1>¡Crea tu avatar!</h1><p>Personaliza tu personaje y hazlo único.</p></div>
+            <div class="avatar-editor">
+                <aside class="avatar-preview-panel"><span class="eyebrow">ASÍ TE VERÁS</span><div id="avatar-preview" class="avatar-preview" data-shirt="blue" data-pants="navy" data-clothing="tee" data-hair="short" data-accessory="none"><span class="avatar-preview-spark" aria-hidden="true">✦</span><div class="avatar-person"><span id="avatar-preview-accessory" class="avatar-preview-accessory"></span><span id="avatar-preview-hair" class="avatar-preview-hair"></span><span id="avatar-preview-face" class="avatar-preview-face" aria-hidden="true"><span class="avatar-brow brow-left"></span><span class="avatar-brow brow-right"></span><span class="avatar-eye eye-left"></span><span class="avatar-eye eye-right"></span><span class="avatar-nose"></span><span class="avatar-smile"></span><span class="avatar-blush blush-left"></span><span class="avatar-blush blush-right"></span></span><span class="avatar-preview-neck"></span><span class="avatar-preview-arms"></span><span class="avatar-preview-shirt"></span><span class="avatar-preview-pants"></span><span class="avatar-preview-shoes" aria-hidden="true">👟</span></div></div><strong id="avatar-preview-name">Aventurero/a</strong><button id="btn-profile-modal" class="btn-secondary" type="button">Editar mis datos</button></aside>
+                <div class="avatar-options">
+                    <fieldset class="avatar-choice-group"><legend><span>1</span> Elige tu personaje</legend><div class="avatar-choice-row"><button class="avatar-choice" type="button" data-avatar-gender="male" aria-label="Niño">👦</button><button class="avatar-choice" type="button" data-avatar-gender="female" aria-label="Niña">👧</button><button class="avatar-choice selected" type="button" data-avatar-gender="neutral" aria-label="Aventurero">🧑</button></div></fieldset>
+                    <fieldset class="avatar-choice-group"><legend><span>2</span> Tono de piel</legend><div class="shirt-choice-row"><button class="avatar-skin selected" type="button" data-skin="light" aria-label="Tono claro" style="--skin:#f5d4bd"></button><button class="avatar-skin" type="button" data-skin="sand" aria-label="Tono medio claro" style="--skin:#e8b995"></button><button class="avatar-skin" type="button" data-skin="medium" aria-label="Tono medio" style="--skin:#c98d67"></button><button class="avatar-skin" type="button" data-skin="brown" aria-label="Tono medio oscuro" style="--skin:#9b6247"></button><button class="avatar-skin" type="button" data-skin="deep" aria-label="Tono oscuro" style="--skin:#694334"></button></div></fieldset>
+                    <fieldset class="avatar-choice-group"><legend><span>3</span> Peinado</legend><div class="avatar-choice-row"><button class="avatar-choice selected" type="button" data-hair="short" aria-label="Pelo corto">✂️</button><button class="avatar-choice" type="button" data-hair="long" aria-label="Pelo largo">💇</button><button class="avatar-choice" type="button" data-hair="curly" aria-label="Pelo rizado">🦱</button><button class="avatar-choice" type="button" data-hair="ponytail" aria-label="Coleta">🎀</button></div></fieldset>
+                    <fieldset class="avatar-choice-group"><legend><span>4</span> Color de cabello</legend><div class="shirt-choice-row"><button class="hair-color-choice selected" type="button" data-hair-color="brown" aria-label="Cabello castaño" style="--hair:#51372b"></button><button class="hair-color-choice" type="button" data-hair-color="black" aria-label="Cabello negro" style="--hair:#28272b"></button><button class="hair-color-choice" type="button" data-hair-color="blonde" aria-label="Cabello rubio" style="--hair:#d8a94f"></button><button class="hair-color-choice" type="button" data-hair-color="auburn" aria-label="Cabello cobrizo" style="--hair:#9c5036"></button></div></fieldset>
+                    <fieldset class="avatar-choice-group"><legend><span>5</span> Ropa</legend><div class="avatar-choice-row"><button class="avatar-choice selected" type="button" data-clothing="tee" aria-label="Camiseta">👕</button><button class="avatar-choice" type="button" data-clothing="hoodie" aria-label="Sudadera">🧥</button><button class="avatar-choice" type="button" data-clothing="jacket" aria-label="Chaqueta">🥼</button></div><div class="shirt-choice-row outfit-colors"><button class="shirt-choice selected" type="button" data-shirt="blue" aria-label="Camiseta azul" style="--shirt:#29a9e8"></button><button class="shirt-choice" type="button" data-shirt="green" aria-label="Camiseta verde" style="--shirt:#44bd83"></button><button class="shirt-choice" type="button" data-shirt="pink" aria-label="Camiseta rosa" style="--shirt:#f07ca5"></button><button class="shirt-choice" type="button" data-shirt="purple" aria-label="Camiseta morada" style="--shirt:#9276d8"></button><button class="shirt-choice" type="button" data-shirt="orange" aria-label="Camiseta naranja" style="--shirt:#f29b4b"></button></div><div class="shirt-choice-row outfit-colors"><button class="avatar-pants-choice selected" type="button" data-pants="navy" aria-label="Pantalón azul" style="--pants:#28618a"></button><button class="avatar-pants-choice" type="button" data-pants="green" aria-label="Pantalón verde" style="--pants:#4b9767"></button><button class="avatar-pants-choice" type="button" data-pants="violet" aria-label="Pantalón violeta" style="--pants:#785f9e"></button><button class="avatar-pants-choice" type="button" data-pants="coral" aria-label="Pantalón coral" style="--pants:#c8755d"></button></div></fieldset>
+                    <fieldset class="avatar-choice-group"><legend><span>6</span> Accesorios</legend><div class="avatar-choice-row"><button class="avatar-accessory selected" type="button" data-accessory="none" aria-label="Sin accesorio">✦</button><button class="avatar-accessory" type="button" data-accessory="cap" aria-label="Gorra">🧢</button><button class="avatar-accessory" type="button" data-accessory="glasses" aria-label="Lentes">👓</button><button class="avatar-accessory" type="button" data-accessory="bow" aria-label="Moño">🎀</button><button class="avatar-accessory" type="button" data-accessory="backpack" aria-label="Mochila">🎒</button></div></fieldset>
+                    <button id="save-avatar" class="btn-primary avatar-save" type="button">💾 Guardar mi avatar</button>
+                    <p id="avatar-save-feedback" class="avatar-save-feedback" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL PARA EL REGISTRO DEL ESTUDIANTE -->
+    <div id="modal-register" class="modal">
+        <div class="modal-content">
+            <button id="close-modal" class="modal-close" type="button" aria-label="Cerrar">×</button>
+            <h2>¡Bienvenido a NutriAventuras!</h2>
+            <p>Ingresa tus datos para comenzar a jugar y ganar puntos.</p>
+            
+            <form id="form-register">
+                <div class="form-group">
+                    <label for="student-name">Nombre o Código del estudiante:</label>
+                    <input type="text" id="student-name" placeholder="Ej. Juan Pérez / Estudiante 01" maxlength="30" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-gender">¿Cómo te identificas?</label>
+                    <select id="student-gender" required>
+                        <option value="female">Niña</option>
+                        <option value="male">Niño</option>
+                        <option value="neutral">Prefiero no decirlo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-age">Edad:</label>
+                    <select id="student-age" required>
+                        <option value="6">6 años</option><option value="7">7 años</option>
+                        <option value="8" selected>8 años</option><option value="9">9 años</option>
+                        <option value="10">10 años</option><option value="11">11 años</option><option value="12">12 años</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-grade">Grado y Sección:</label>
+                    <select id="student-grade" required>
+                        <option value="Primero A">Primero A</option>
+                        <option value="Primero B" selected>Primero B</option>
+                        <option value="Segundo A">Segundo A</option>
+                        <option value="Segundo B">Segundo B</option>
+                        <option value="Tercero A">Tercero A</option>
+                        <option value="Cuarto A">Cuarto A</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-goal">Mi objetivo:</label>
+                    <select id="student-goal" required>
+                        <option value="explore">Descubrir alimentos nuevos</option>
+                        <option value="water">Tomar más agua</option>
+                        <option value="energy">Tener más energía</option>
+                        <option value="learn">Aprender jugando</option>
+                    </select>
+                </div>
+
+                <fieldset class="avatar-picker">
+                    <legend>Elige tu avatar</legend>
+                    <label><input type="radio" name="avatar-choice" value="auto" checked> ✨ Automático</label>
+                    <label><input type="radio" name="avatar-choice" value="female"> 👧 Exploradora</label>
+                    <label><input type="radio" name="avatar-choice" value="male"> 👦 Explorador</label>
+                    <label><input type="radio" name="avatar-choice" value="neutral"> 🧑 Personal</label>
+                </fieldset>
+
+                <label class="consent-row"><input type="checkbox" id="profile-consent" required> Acepto usar estos datos para personalizar mi experiencia.</label>
+
+                <button type="submit" class="btn-primary btn-full">¡Comenzar la aventura!</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="missions-complete-modal" class="modal celebration-modal" role="dialog" aria-modal="true" aria-labelledby="missions-complete-title">
+        <div class="celebration-content">
+            <button id="close-celebration" class="modal-close" aria-label="Cerrar">×</button>
+            <div class="celebration-stars">⭐ 🌟 ⭐</div>
+            <div class="celebration-icon">🏆</div>
+            <span class="celebration-kicker">¡RETO SUPERADO!</span>
+            <h2 id="missions-complete-title">¡MUY BIEN!</h2>
+            <p class="celebration-main">Completaste todas las misiones.</p>
+            <p class="celebration-tomorrow">Vuelve a jugar mañana para descubrir nuevos retos.</p>
+            <button id="celebration-ok" class="btn-primary">¡Seguir explorando! <span>→</span></button>
+        </div>
+    </div>
+
+    <!-- Script de Confetti para premios -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <audio id="background-music" class="background-music" autoplay loop controls preload="auto">
+        <source src="Travelling.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Lógica JS (irá en el paso 3) -->
+    <script src="script.js"></script>
+</body>
+</html>

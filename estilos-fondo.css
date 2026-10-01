@@ -1,0 +1,173 @@
+body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: transparent;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+.nutri-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: linear-gradient(180deg, #38bef8 0%, #7dd3fc 45%, #bae6fd 75%, #e0f2fe 100%);
+}
+
+.sun-rays {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: min(400px, 70vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 180deg, rgba(255, 255, 255, .25) 0deg 15deg, transparent 15deg 30deg);
+    translate: var(--bg-sun-x, 0px) var(--bg-vertical-y, 0px);
+    animation: sun-ray-rotation 90s linear infinite;
+}
+
+.sun {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: clamp(120px, 18vw, 220px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 36% 32%, #fff5a8 0%, #fde047 42%, #facc15 75%, #eab308 100%);
+    box-shadow: 0 0 60px rgba(250, 204, 21, .72), 0 0 120px rgba(253, 224, 71, .35);
+    translate: var(--bg-sun-x, 0px) var(--bg-vertical-y, 0px);
+}
+
+.cloud {
+    position: absolute;
+    z-index: 2;
+    width: clamp(120px, 17vw, 220px);
+    height: 55px;
+    border-radius: 50px;
+    background: #fff;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, .08));
+    translate: var(--bg-cloud-x, 0px) var(--bg-vertical-y, 0px);
+    animation: cloud-float 20s ease-in-out infinite alternate;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.cloud::before { left: 18%; width: 43%; aspect-ratio: 1; }
+.cloud::after { right: 17%; width: 34%; aspect-ratio: 1; }
+.cloud-left { top: 40px; left: 3%; }
+.cloud-right { top: 80px; right: 18%; animation-delay: -9s; }
+
+.distant-mountains {
+    position: absolute;
+    right: -5%;
+    bottom: 120px;
+    left: -5%;
+    height: min(34vh, 300px);
+    background:
+        radial-gradient(ellipse at 75% 100%, #86efac 0%, #4ade80 40%, transparent 70%),
+        radial-gradient(ellipse at 25% 100%, #a7f3d0 0%, #34d399 50%, transparent 75%);
+    clip-path: polygon(0 83%, 12% 55%, 24% 74%, 39% 24%, 54% 72%, 68% 36%, 82% 75%, 92% 42%, 100% 72%, 100% 100%, 0 100%);
+    translate: var(--bg-mountains-x, 0px) var(--bg-vertical-y, 0px);
+    transition: translate .3s ease-out;
+}
+
+.river-waterfall {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: min(320px, 42vw);
+    height: 220px;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at 50% 100%, #38bef8 0%, #0284c7 60%, transparent 90%);
+    clip-path: polygon(45% 0%, 55% 0%, 85% 100%, 15% 100%);
+    opacity: .85;
+    transform: translateX(-50%);
+    translate: var(--bg-water-x, 0px) var(--bg-vertical-y, 0px);
+}
+
+.river-waterfall::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 48%;
+    width: 12px;
+    height: 100%;
+    background: #e0f2fe;
+    box-shadow: 0 0 15px #fff;
+    animation: waterfall-light 2.8s ease-in-out infinite alternate;
+}
+
+.hills-mid {
+    position: absolute;
+    right: -7%;
+    bottom: 40px;
+    left: -7%;
+    height: 200px;
+    background:
+        radial-gradient(ellipse at 15% 100%, #4ade80 0%, #22c55e 65%, transparent 85%),
+        radial-gradient(ellipse at 85% 100%, #4ade80 0%, #16a34a 65%, transparent 85%);
+    translate: var(--bg-hills-x, 0px) 0;
+    transition: translate .22s ease-out;
+}
+
+.foreground-grass {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+    border-radius: 40% 40% 0 0 / 60px 60px 0 0;
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 50%, #166534 100%);
+    box-shadow: inset 0 10px 20px rgba(255, 255, 255, .2);
+    translate: var(--bg-grass-x, 0px) 0;
+    transition: translate .16s ease-out;
+}
+
+.flowers {
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    height: 42px;
+    background-image:
+        radial-gradient(circle, #fde047 3px, #fff 4px, #fff 8px, transparent 9px),
+        radial-gradient(circle, #fde047 3px, #fff 4px, #fff 8px, transparent 9px);
+    background-size: 120px 40px, 90px 30px;
+    background-position: 0 0, 45px 15px;
+    opacity: .9;
+    animation: flowers-breeze 4s ease-in-out infinite alternate;
+}
+
+@keyframes sun-ray-rotation { to { transform: rotate(360deg); } }
+@keyframes cloud-float { to { margin-left: 18px; } }
+@keyframes waterfall-light { to { opacity: .45; } }
+@keyframes flowers-breeze { to { translate: 0 -3px; } }
+
+@media (max-width: 700px) {
+    .sun { top: 6px; right: -24px; width: 105px; }
+    .sun-rays { top: -35px; right: -66px; width: 210px; }
+    .cloud { height: 38px; }
+    .cloud-left { top: 70px; left: -18px; }
+    .cloud-right { top: 118px; right: -50px; }
+    .distant-mountains { bottom: 88px; height: 190px; }
+    .river-waterfall { height: 155px; }
+    .hills-mid { bottom: 24px; height: 130px; }
+    .foreground-grass { height: 80px; }
+    .flowers { top: 8px; height: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sun-rays, .cloud, .river-waterfall::before, .flowers { animation: none; }
+    .distant-mountains, .hills-mid, .foreground-grass, .sun, .cloud, .river-waterfall { transition: none; }
+}
